@@ -22,12 +22,17 @@ final class MainController: UIViewController, MainControllerProtocol {
         configure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+
     fileprivate func configure() {
         view.addSubview(mainView)
         mainView.delegate = self
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGreen
         NSLayoutConstraint.activate([
-            mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            mainView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10),
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)

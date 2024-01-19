@@ -14,5 +14,10 @@ struct Resources {
         static var iconImageName: String = "welcome_icon"
         static var showAllCardsButtonTitle: String = "Continue"
     }
+
+    enum AllCardsScreen {
+        static var navigationTitle: String = "Список"
+        static var emptyImageName: String = "empty_image"
+    }
 }
 

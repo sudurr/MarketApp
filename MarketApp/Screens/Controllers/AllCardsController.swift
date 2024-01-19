@@ -5,6 +5,7 @@
 //  Created by Судур Сугунушев on 19.01.2024.
 //
 
+
 import UIKit
 
 final class AllCardsController: UIViewController, AllCardsControllerProtocol {
@@ -13,7 +14,7 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
         let view = AllCardsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-        
+
     }()
 
     override func viewDidLoad() {

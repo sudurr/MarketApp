@@ -16,12 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let viewController = ViewController()
-
+        let router = Router()
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = viewController
+        window?.rootViewController = router.prepareInitialScreen()
         window?.makeKeyAndVisible()
+    
 
 
     }

@@ -15,6 +15,7 @@ final class MainView: UIView, MainViewProtocol {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,11 +30,12 @@ final class MainView: UIView, MainViewProtocol {
     var showAllCardsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Продолжить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.systemGreen, for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemGreen.withAlphaComponent(0.7)
+        button.titleLabel?.font = .systemFont(ofSize: 17)
+        button.backgroundColor = .white
         return button
     }()
 
