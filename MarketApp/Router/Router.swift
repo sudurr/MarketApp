@@ -22,10 +22,19 @@ final class Router: RouterProtocol {
         navigation.viewControllers = [mainController]
         return navigation
     }
+
+    func openAllCardsScreen() {
+        let allCardsController = AllCardsController()
+        let allCardsPresenter = AllCardsPresenter(router: self, view: allCardsController.allCardsView)
+        allCardsController.presenter = allCardsPresenter
+        navigation.pushViewController(allCardsController, animated: true)
+    }
 }
 
 
 
 protocol RouterProtocol: AnyObject {
     func prepareInitialScreen() -> UIViewController
+    func openAllCardsScreen()
+
 }

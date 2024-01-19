@@ -31,7 +31,7 @@ final class MainPresenter: MainPresenterProtocol {
     }
 
     func showAllCardsButtonPressed() {
-
+        router?.openAllCardsScreen()
     }
 
 

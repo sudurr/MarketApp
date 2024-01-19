@@ -83,6 +83,7 @@ final class MainView: UIView, MainViewProtocol {
         stackView.alignment = .center
         stackView.spacing = 20
         iconImage.contentMode = .scaleAspectFit
+        showAllCardsButton.addTarget(self, action: #selector(showButtonAction), for: .touchUpInside)
 
     }
 
@@ -96,6 +97,10 @@ final class MainView: UIView, MainViewProtocol {
 
     func setTitleForButton(_ title: String?) {
         showAllCardsButton.setTitle(title, for: .normal)
+    }
+
+    @objc func showButtonAction() {
+        delegate?.showAllCardsButtonPressed()
     }
 
 }
