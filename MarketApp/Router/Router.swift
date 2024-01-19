@@ -15,8 +15,9 @@ final class Router: RouterProtocol {
     }
 
     func prepareInitialScreen() -> UIViewController {
-        let mainController = MainViewController()
-        let mainPresenter = MainPresenter(router: self, view: mainController)
+        let mainController = MainController()
+        let mainPresenter = MainPresenter(router: self, view: mainController.mainView)
+        mainController.presenter = mainPresenter
 
         navigation.viewControllers = [mainController]
         return navigation

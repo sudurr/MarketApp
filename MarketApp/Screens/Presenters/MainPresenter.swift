@@ -11,9 +11,9 @@ final class MainPresenter: MainPresenterProtocol {
 
 
     private var router: RouterProtocol?
-    private weak var view: MainViewControllerProtocol?
+    private weak var view: MainViewProtocol?
 
-    init(router: RouterProtocol, view: MainViewControllerProtocol) {
+    init(router: RouterProtocol, view: MainViewProtocol) {
         self.view = view
         self.router = router
     }

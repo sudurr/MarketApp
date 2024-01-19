@@ -7,8 +7,13 @@
 
 import UIKit
 
-protocol MainViewControllerProtocol: AnyObject {
+protocol MainViewProtocol: UIView {
     var titlelabel: UILabel { get }
     var iconImage: UIImageView { get }
     var showAllCardsButton: UIButton { get }
+    var delegate: MainViewDelegate? { get set }
+
+    func setTitle(_ title: String?)
+    func setIconImage(_ image: UIImage?)
+    func setTitleForButton(_ title: String?)
 }
