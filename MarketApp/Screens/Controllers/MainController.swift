@@ -32,10 +32,10 @@ final class MainController: UIViewController, MainControllerProtocol {
         mainView.delegate = self
         view.backgroundColor = .systemGreen
         NSLayoutConstraint.activate([
-            mainView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10),
+            mainView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
 
         mainView.setTitle(presenter?.getMainTitle() ?? "")

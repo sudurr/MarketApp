@@ -29,6 +29,12 @@
 		47A9112E2B5A8EC000540B67 /* AllCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112D2B5A8EC000540B67 /* AllCardsView.swift */; };
 		47A911302B5A958200540B67 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112F2B5A958200540B67 /* CardCell.swift */; };
 		47A911322B5A9E0C00540B67 /* AllCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911312B5A9E0C00540B67 /* AllCardsController.swift */; };
+		47A911342B5AC1B400540B67 /* CardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911332B5AC1B400540B67 /* CardDetailController.swift */; };
+		47A911362B5AC22A00540B67 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */; };
+		47A911382B5AC24500540B67 /* CardDetailControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */; };
+		47A9113A2B5AC26700540B67 /* CardDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */; };
+		47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */; };
+		47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113D2B5AC2A000540B67 /* CardDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,12 @@
 		47A9112D2B5A8EC000540B67 /* AllCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsView.swift; sourceTree = "<group>"; };
 		47A9112F2B5A958200540B67 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		47A911312B5A9E0C00540B67 /* AllCardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsController.swift; sourceTree = "<group>"; };
+		47A911332B5AC1B400540B67 /* CardDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailController.swift; sourceTree = "<group>"; };
+		47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
+		47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailControllerProtocol.swift; sourceTree = "<group>"; };
+		47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenterProtocol.swift; sourceTree = "<group>"; };
+		47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewProtocol.swift; sourceTree = "<group>"; };
+		47A9113D2B5AC2A000540B67 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +137,7 @@
 			children = (
 				47A911182B5A789500540B67 /* MainController.swift */,
 				47A911312B5A9E0C00540B67 /* AllCardsController.swift */,
+				47A911332B5AC1B400540B67 /* CardDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,6 +147,7 @@
 			children = (
 				47A911112B59B0D900540B67 /* MainPresenter.swift */,
 				47A911232B5A8E2F00540B67 /* AllCardsPresenter.swift */,
+				47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -149,6 +163,9 @@
 				47A911272B5A8E6300540B67 /* AllCardsPresenterProtocol.swift */,
 				47A911292B5A8E8300540B67 /* AllCardsViewDelegate.swift */,
 				47A9112B2B5A8EAA00540B67 /* AllCardsViewProtocol.swift */,
+				47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */,
+				47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */,
+				47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 				47A9111F2B5A79AA00540B67 /* MainView.swift */,
 				47A9112D2B5A8EC000540B67 /* AllCardsView.swift */,
 				47A9112F2B5A958200540B67 /* CardCell.swift */,
+				47A9113D2B5AC2A000540B67 /* CardDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,15 +260,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A9112C2B5A8EAA00540B67 /* AllCardsViewProtocol.swift in Sources */,
+				47A9113A2B5AC26700540B67 /* CardDetailPresenterProtocol.swift in Sources */,
 				47A910F52B59963D00540B67 /* ViewController.swift in Sources */,
+				47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */,
 				47A911202B5A79AA00540B67 /* MainView.swift in Sources */,
 				47A910F12B59963D00540B67 /* AppDelegate.swift in Sources */,
 				47A911242B5A8E2F00540B67 /* AllCardsPresenter.swift in Sources */,
 				47A9112A2B5A8E8300540B67 /* AllCardsViewDelegate.swift in Sources */,
 				47A911072B59AE9800540B67 /* Router.swift in Sources */,
+				47A911342B5AC1B400540B67 /* CardDetailController.swift in Sources */,
 				47A9111B2B5A792C00540B67 /* MainControllerProtocol.swift in Sources */,
+				47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */,
 				47A911142B59B10700540B67 /* MainPresenterProtocol.swift in Sources */,
 				47A911322B5A9E0C00540B67 /* AllCardsController.swift in Sources */,
+				47A911382B5AC24500540B67 /* CardDetailControllerProtocol.swift in Sources */,
 				47A911192B5A789500540B67 /* MainController.swift in Sources */,
 				47A911122B59B0D900540B67 /* MainPresenter.swift in Sources */,
 				47A911282B5A8E6300540B67 /* AllCardsPresenterProtocol.swift in Sources */,
@@ -259,6 +282,7 @@
 				47A911302B5A958200540B67 /* CardCell.swift in Sources */,
 				47A9112E2B5A8EC000540B67 /* AllCardsView.swift in Sources */,
 				47A910F32B59963D00540B67 /* SceneDelegate.swift in Sources */,
+				47A911362B5AC22A00540B67 /* CardDetailPresenter.swift in Sources */,
 				47A911052B59A92800540B67 /* Models.swift in Sources */,
 				47A911262B5A8E4700540B67 /* AllCardsControllerProtocol.swift in Sources */,
 			);

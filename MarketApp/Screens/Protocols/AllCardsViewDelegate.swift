@@ -15,5 +15,6 @@ protocol AllCardsViewDelegate {
     func getItemsCount() -> Int
     func getCardData(at index: Int) -> CardData
     func selectCard(at index: Int)
-
+    func hideNavBar()
+    func showNavBar()
 }

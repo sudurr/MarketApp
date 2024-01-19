@@ -54,7 +54,7 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
 
 extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return delegate?.getItemsCount() ?? 0
     }
 
 
@@ -103,4 +103,10 @@ extension AllCardsView: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+             delegate?.hideNavBar() } else { delegate?.showNavBar() }
+     }
+
 }

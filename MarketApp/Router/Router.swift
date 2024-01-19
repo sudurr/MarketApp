@@ -29,6 +29,13 @@ final class Router: RouterProtocol {
         allCardsController.presenter = allCardsPresenter
         navigation.pushViewController(allCardsController, animated: true)
     }
+
+    func openCardDetailScreen() {
+           let cardDetailController = CardDetailController()
+           let cardDetailPresenter = CardDetailPresenter(router: self, view: cardDetailController.cardDetailView)
+           cardDetailController.presenter = cardDetailPresenter
+           navigation.pushViewController(cardDetailController, animated: true)
+       }
 }
 
 
@@ -36,5 +43,6 @@ final class Router: RouterProtocol {
 protocol RouterProtocol: AnyObject {
     func prepareInitialScreen() -> UIViewController
     func openAllCardsScreen()
+    func openCardDetailScreen()
 
 }
