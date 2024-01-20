@@ -15,6 +15,8 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
 
     private let iconImage: UIImageView = {
         let image = UIImageView()
+        image.layer.masksToBounds = true
+        image.layer.cornerRadius = 16
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
@@ -28,88 +30,132 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
     }()
 
     private let favoritesButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "star")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.setImage(UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        button.tintColor = .gray
+        button.setImage(UIImage(named: Resources.CardView.favoritesButtonImageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
         return button
     }()
 
     private let cardTitle: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let cardDescription: UILabel = {
         let label = UILabel()
+        label.textColor = .gray
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let buyButton: UIButton = {
         let button = UIButton(type: .system)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitle(" Где купить".uppercased(), for: .normal)
+        button.setImage(UIImage(named:Resources.CardView.buyButtonImageName)?.withRenderingMode(.alwaysOriginal),
+                        for: .normal)
+        button.tintColor = .black
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        button.layer.borderWidth = 1.5
+        button.layer.borderColor = UIColor( red: 230/255, green: 230/255, blue:230/255, alpha: 1.0 ).cgColor
+        button.backgroundColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addViews()
         layoutViews()
         configureViews()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addViews()
         layoutViews()
         configureViews()
     }
 
-    fileprivate func addViews() {
-        addSubview(topStackView)
-        //   addSubview(mainStackView)
-
-        topStackView.addArrangedSubview(iconImage)
-        topStackView.addArrangedSubview(cardImage)
-        topStackView.addArrangedSubview(favoritesButton)
-        topStackView.translatesAutoresizingMaskIntoConstraints = false
-
-        //        mainStackView.addArrangedSubview(topStackView)
-        //        mainStackView.addArrangedSubview(cardTitle)
-        //        mainStackView.addArrangedSubview(cardDescription)
-        //        mainStackView.addArrangedSubview(buyButton)
-        //        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-    }
-
     fileprivate func layoutViews() {
+        addSubview(mainStackView)
+
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
 
             iconImage.widthAnchor.constraint(equalToConstant: 32),
+            iconImage.heightAnchor.constraint(equalToConstant: 32),
+            favoritesButton.widthAnchor.constraint(equalToConstant: 32),
+            favoritesButton.heightAnchor.constraint(equalToConstant: 32),
 
             cardImage.widthAnchor.constraint(equalToConstant: 150),
+            cardImage.heightAnchor.constraint(equalToConstant: 200),
 
-            favoritesButton.widthAnchor.constraint(equalToConstant: 32),
-
-            topStackView.topAnchor.constraint(equalTo: topAnchor),
-            topStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topStackView.heightAnchor.constraint(equalToConstant: 200),
+            buyButton.heightAnchor.constraint(equalToConstant: 40),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
         ])
     }
 
     fileprivate func configureViews() {
-        topStackView.axis = .horizontal
-        //  topStackView.distribution = .equalSpacing
-        topStackView.spacing = 30
+        backgroundColor = .white
+
+        topStackView.addArrangedSubview(iconImage)
+        topStackView.spacing = 20
+        topStackView.addArrangedSubview(cardImage)
+        topStackView.spacing = 20
+        topStackView.addArrangedSubview(favoritesButton)
+
+        let spacerView = UIView()
+        mainStackView.addArrangedSubview(topStackView)
+        mainStackView.addArrangedSubview(cardTitle)
+        mainStackView.addArrangedSubview(cardDescription)
+        mainStackView.addArrangedSubview(buyButton)
+        mainStackView.addArrangedSubview(spacerView)
+
+        iconImage.setContentCompressionResistancePriority(.required, for: .horizontal)
+        iconImage.setContentCompressionResistancePriority(.required, for: .vertical)
+
+        favoritesButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        favoritesButton.setContentCompressionResistancePriority(.required, for: .vertical)
+        cardImage.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        cardImage.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+
+
         mainStackView.axis = .vertical
+        mainStackView.alignment = .fill
+        mainStackView.distribution = .fill
+        mainStackView.spacing = 10
 
-        topStackView.backgroundColor = .systemGray4
-        mainStackView.backgroundColor = .systemGray3
+        topStackView.axis = .horizontal
+        topStackView.alignment = .top
 
-        iconImage.backgroundColor = .black
-        cardImage.backgroundColor = .blue
+        topStackView.spacing = 20
+        topStackView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        topStackView.setContentCompressionResistancePriority(.required, for: .vertical)
+    }
 
+    func setCompanyIcon(image: UIImage) {
+        self.iconImage.image = image
+    }
+
+    func setCardImage(_ image: UIImage) {
+        self.cardImage.image = image
+    }
+
+    func setCardTitle(_ text: String) {
+        self.cardTitle.text = text
+    }
+
+    func setCardDescription(_ text: String) {
+        self.cardDescription.text = text
     }
 }
