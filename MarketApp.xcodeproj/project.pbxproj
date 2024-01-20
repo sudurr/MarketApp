@@ -35,6 +35,7 @@
 		47A9113A2B5AC26700540B67 /* CardDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */; };
 		47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */; };
 		47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113D2B5AC2A000540B67 /* CardDetailView.swift */; };
+		47A911402B5C4A0900540B67 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113F2B5C4A0900540B67 /* ExpandableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewProtocol.swift; sourceTree = "<group>"; };
 		47A9113D2B5AC2A000540B67 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		47A9113F2B5C4A0900540B67 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				47A9112D2B5A8EC000540B67 /* AllCardsView.swift */,
 				47A9112F2B5A958200540B67 /* CardCell.swift */,
 				47A9113D2B5AC2A000540B67 /* CardDetailView.swift */,
+				47A9113F2B5C4A0900540B67 /* ExpandableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				47A9110D2B59B03800540B67 /* MainViewControllerProtocol.swift in Sources */,
 				47A911302B5A958200540B67 /* CardCell.swift in Sources */,
 				47A9112E2B5A8EC000540B67 /* AllCardsView.swift in Sources */,
+				47A911402B5C4A0900540B67 /* ExpandableView.swift in Sources */,
 				47A910F32B59963D00540B67 /* SceneDelegate.swift in Sources */,
 				47A911362B5AC22A00540B67 /* CardDetailPresenter.swift in Sources */,
 				47A911052B59A92800540B67 /* Models.swift in Sources */,

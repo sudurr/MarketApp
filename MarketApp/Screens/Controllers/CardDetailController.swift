@@ -30,7 +30,6 @@ final class CardDetailController: UIViewController, CardDetailControllerProtocol
 
         view.backgroundColor = .systemGreen
         navigationController?.navigationBar.tintColor = .white
-        cardDetailView.backgroundColor = .white
         NSLayoutConstraint.activate([
             cardDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             cardDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

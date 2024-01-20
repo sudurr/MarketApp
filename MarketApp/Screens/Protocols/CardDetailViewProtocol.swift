@@ -8,5 +8,9 @@
 import UIKit
 
 protocol CardDetailViewProtocol: UIView, AnyObject {
+    var dataSource: CardDetailViewDataSource? { get set }
+}
+
+protocol CardDetailViewDataSource: AnyObject {
 
 }

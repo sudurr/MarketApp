@@ -108,21 +108,3 @@ extension AllCardsController: AllCardsViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
-
-class ExpandableView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .clear
-        translatesAutoresizingMaskIntoConstraints = false
-
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override var intrinsicContentSize: CGSize {
-        return UIView.layoutFittingExpandedSize
-    }
-}
