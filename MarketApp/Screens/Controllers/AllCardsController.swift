@@ -17,43 +17,61 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     }()
 
     private var titleView: UILabel = {
-           let label = UILabel()
-           label.text = "Список"
-           label.translatesAutoresizingMaskIntoConstraints = false
-           return label
-       }()
-       private let searchBar = UISearchBar()
-       private let expandableView = ExpandableView()
-       private var leftConstraint: NSLayoutConstraint!
+        let label = UILabel()
+        label.text = "Список"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let searchBar = UISearchBar()
+    private let expandableView = ExpandableView()
+    private var leftConstraint: NSLayoutConstraint!
+    private let network = NetworkManager.shared
+    private var cards = Cards()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        loadCards(from: 1)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         navigationController?.navigationBar.isHidden = false
-     }
+    func loadCards(from offset: Int) {
+            network.fetchCards(offset: offset, limit: 6) { [self] result in
+                switch result {
+                case .success(let drugs):
+                    cards = drugs
+                    DispatchQueue.main.async { [self] in
+                        allCardsView.updateView()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
 
-     func colorizeNavBar(_ condition: Bool) {
-         navigationController?.navigationBar.topItem?.title = " "
-         navigationController?.navigationBar.tintColor = .white
-         navigationController?.navigationBar.titleTextAttributes = condition ? [
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+
+    func colorizeNavBar(_ condition: Bool) {
+        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = condition ? [
             NSAttributedString.Key.foregroundColor : UIColor.white
-         ] : nil
-     }
+        ] : nil
+    }
 
     func configureExpandableView() {
-            searchBar.translatesAutoresizingMaskIntoConstraints = false
-            expandableView.addSubview(searchBar)
-            leftConstraint = searchBar.leftAnchor.constraint(equalTo: expandableView.leftAnchor)
-            leftConstraint.isActive = false
-            searchBar.rightAnchor.constraint(equalTo: expandableView.rightAnchor).isActive = true
-            searchBar.topAnchor.constraint(equalTo: expandableView.topAnchor).isActive = true
-            searchBar.bottomAnchor.constraint(equalTo: expandableView.bottomAnchor).isActive = true
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(toggleSearch))
-        }
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        expandableView.addSubview(searchBar)
+        leftConstraint = searchBar.leftAnchor.constraint(equalTo: expandableView.leftAnchor)
+        leftConstraint.isActive = false
+        searchBar.rightAnchor.constraint(equalTo: expandableView.rightAnchor).isActive = true
+        searchBar.topAnchor.constraint(equalTo: expandableView.topAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: expandableView.bottomAnchor).isActive = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(toggleSearch))
+    }
 
     fileprivate func configure() {
         view.backgroundColor = .systemGreen
@@ -72,18 +90,18 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
 
     @objc func toggleSearch() {
 
-            navigationItem.titleView = expandableView
-            navigationItem.titleView?.layoutIfNeeded()
-            let isOpen = leftConstraint.isActive == true
-            leftConstraint.isActive = isOpen ? false : true
+        navigationItem.titleView = expandableView
+        navigationItem.titleView?.layoutIfNeeded()
+        let isOpen = leftConstraint.isActive == true
+        leftConstraint.isActive = isOpen ? false : true
 
-            UIView.animate(withDuration: 1, animations: {
-                self.navigationItem.titleView?.alpha = isOpen ? 0 : 1
-                self.navigationItem.titleView?.layoutIfNeeded()
-            })
+        UIView.animate(withDuration: 1, animations: {
+            self.navigationItem.titleView?.alpha = isOpen ? 0 : 1
+            self.navigationItem.titleView?.layoutIfNeeded()
+        })
 
-            if isOpen { navigationItem.titleView = nil }
-        }
+        if isOpen { navigationItem.titleView = nil }
+    }
 }
 
 extension AllCardsController: AllCardsViewDelegate {
@@ -92,11 +110,13 @@ extension AllCardsController: AllCardsViewDelegate {
     }
 
     func getItemsCount() -> Int {
-        return 10
+        return self.cards.count
     }
 
     func getCardData(at index: Int) -> CardData {
-        let data = ("Title", "Description", UIImage(named: Resources.AllCardsScreen.emptyImageName))
+        let title = cards[index].name
+        let description = cards[index].description
+        let data = (title ?? "", description ?? "", UIImage(named: Resources.AllCardsScreen.emptyImageName))
         return data
     }
 

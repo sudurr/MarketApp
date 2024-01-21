@@ -10,10 +10,10 @@ import Foundation
 typealias Cards = [Card]
 
 struct Card: Codable {
-    let id: Int
-    let image: String
-    let categories: Categories
-    let name, description: String
+    let id: Int?
+    let image: String?
+    let categories: Categories?
+    let name, description: String?
 }
 
 struct Categories: Codable {

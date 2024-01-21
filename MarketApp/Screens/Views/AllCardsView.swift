@@ -10,6 +10,10 @@ import UIKit
 
 final class AllCardsView: UIView, AllCardsViewProtocol {
 
+    func updateView() {
+            collectionView.reloadData()
+        }
+
     var delegate: AllCardsViewDelegate?
 
     let collectionView: UICollectionView = {
