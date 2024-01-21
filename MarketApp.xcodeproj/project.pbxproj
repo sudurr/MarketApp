@@ -36,6 +36,8 @@
 		47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */; };
 		47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113D2B5AC2A000540B67 /* CardDetailView.swift */; };
 		47A911402B5C4A0900540B67 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9113F2B5C4A0900540B67 /* ExpandableView.swift */; };
+		47A911422B5D84AF00540B67 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911412B5D84AF00540B67 /* Cards.swift */; };
+		47A911462B5D84FB00540B67 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911452B5D84FB00540B67 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewProtocol.swift; sourceTree = "<group>"; };
 		47A9113D2B5AC2A000540B67 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		47A9113F2B5C4A0900540B67 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
+		47A911412B5D84AF00540B67 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		47A911452B5D84FB00540B67 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		47A910EF2B59963D00540B67 /* MarketApp */ = {
 			isa = PBXGroup;
 			children = (
+				47A911432B5D84D300540B67 /* Service */,
 				47A911152B5A77B800540B67 /* Models */,
 				47A9110B2B59B01B00540B67 /* Router */,
 				47A9110A2B59B00700540B67 /* Screens */,
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				47A911042B59A92800540B67 /* Models.swift */,
+				47A911412B5D84AF00540B67 /* Cards.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +196,14 @@
 				47A9113F2B5C4A0900540B67 /* ExpandableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		47A911432B5D84D300540B67 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				47A911452B5D84FB00540B67 /* NetworkManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,7 @@
 				47A9112C2B5A8EAA00540B67 /* AllCardsViewProtocol.swift in Sources */,
 				47A9113A2B5AC26700540B67 /* CardDetailPresenterProtocol.swift in Sources */,
 				47A910F52B59963D00540B67 /* ViewController.swift in Sources */,
+				47A911422B5D84AF00540B67 /* Cards.swift in Sources */,
 				47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */,
 				47A911202B5A79AA00540B67 /* MainView.swift in Sources */,
 				47A910F12B59963D00540B67 /* AppDelegate.swift in Sources */,
@@ -275,6 +290,7 @@
 				47A9111B2B5A792C00540B67 /* MainControllerProtocol.swift in Sources */,
 				47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */,
 				47A911142B59B10700540B67 /* MainPresenterProtocol.swift in Sources */,
+				47A911462B5D84FB00540B67 /* NetworkManager.swift in Sources */,
 				47A911322B5A9E0C00540B67 /* AllCardsController.swift in Sources */,
 				47A911382B5AC24500540B67 /* CardDetailControllerProtocol.swift in Sources */,
 				47A911192B5A789500540B67 /* MainController.swift in Sources */,
