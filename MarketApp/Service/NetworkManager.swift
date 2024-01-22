@@ -85,7 +85,7 @@ extension NetworkManager {
             completion(.failure(NetworkError.invalidURL))
             return
         }
-        print(url)
+
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
@@ -101,9 +101,10 @@ extension NetworkManager {
                 return
             }
 
-            completion(.success(image))
+            DispatchQueue.main.async {
+                            completion(.success(image))
+                        }
         }
-
         task.resume()
     }
 

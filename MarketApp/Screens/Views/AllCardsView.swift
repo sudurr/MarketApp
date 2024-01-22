@@ -75,9 +75,7 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
             NetworkManager.shared.loadImage(from: categoryIcon) { result in
                 switch result {
                 case .success(let image):
-                    DispatchQueue.main.async {
-                        cell.cardImage.image = image
-                    }
+                    cell.cardImage.image = image
                 case .failure(let error):
                     print("Failed to load icon: \(error)")
                 }

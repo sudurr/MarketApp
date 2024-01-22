@@ -160,9 +160,7 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         NetworkManager.shared.loadImage(from: image) { [self] result in
             switch result {
             case .success(let loadedImage):
-                DispatchQueue.main.async {
                     self.cardImage.image = loadedImage
-                }
             case .failure(let error):
                 print(error.localizedDescription) }
         }
