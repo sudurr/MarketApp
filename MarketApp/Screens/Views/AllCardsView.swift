@@ -66,11 +66,25 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cellData = delegate?.getCardData(at: indexPath.row),
               let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: indexPath) as? CardCell else { print("ERROR:ReusableCell"); return UICollectionViewCell() }
-        print(cellData)
+
         cell.configure(title: cellData.title,
                        description: cellData.description,
-                       image: cellData.image)
+                       image: cellData.image ?? "")
 
+        if let categoryIcon = cellData.image {
+            NetworkManager.shared.loadImage(from: categoryIcon) { result in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        cell.cardImage.image = image
+                    }
+                case .failure(let error):
+                    print("Failed to load icon: \(error)")
+                }
+            }
+        } else {
+            cell.cardImage.image = UIImage(named: Resources.AllCardsScreen.emptyImageName)
+        }
         return cell
     }
 }

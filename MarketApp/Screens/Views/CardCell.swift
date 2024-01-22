@@ -12,7 +12,7 @@ final class CardCell: UICollectionViewCell {
 
     static let identifier: String = "CardCell"
 
-    private var cardImage: UIImageView = {
+    var cardImage: UIImageView = {
        let image = UIImageView()
         image.layer.cornerRadius = 8
         image.layer.masksToBounds = true
@@ -62,13 +62,10 @@ final class CardCell: UICollectionViewCell {
         ])
     }
 
-    public func configure(title: String, description: String, image: UIImage?) {
+    public func configure(title: String, description: String, image: String) {
         self.backgroundColor = .clear
         self.cardTitle.text = title
         self.cardDescription.text = description
-        self.cardImage.image = image
-        self.cardImage.contentMode = .scaleAspectFit
-        self.cardImage.backgroundColor = .black
 
         self.layer.masksToBounds = true
         self.layer.borderWidth = 1.5

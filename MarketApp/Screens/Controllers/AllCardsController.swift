@@ -116,7 +116,10 @@ extension AllCardsController: AllCardsViewDelegate {
     func getCardData(at index: Int) -> CardData {
         let title = cards[index].name
         let description = cards[index].description
-        let data = (title ?? "", description ?? "", UIImage(named: Resources.AllCardsScreen.emptyImageName))
+        let imageUrl = cards[index].categories?.image
+        let data = (title ?? "",
+                    description ?? "",
+                            imageUrl ?? "")
         return data
     }
 
