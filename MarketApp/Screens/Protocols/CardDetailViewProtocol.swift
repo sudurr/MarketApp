@@ -9,8 +9,8 @@ import UIKit
 
 protocol CardDetailViewProtocol: UIView, AnyObject {
     var dataSource: CardDetailViewDataSource? { get set }
-    func setCompanyIcon(image: UIImage)
-    func setCardImage(_ image: UIImage)
+    func setCompanyIcon(image: String)
+    func setCardImage(_ image: String)
     func setCardTitle(_ text: String)
     func setCardDescription(_ text: String)
 }

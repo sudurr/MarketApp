@@ -8,6 +8,7 @@
 import UIKit
 
 final class CardDetailView: UIView, CardDetailViewProtocol {
+
     var dataSource: CardDetailViewDataSource?
 
     private let topStackView = UIStackView()
@@ -143,12 +144,28 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         topStackView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
-    func setCompanyIcon(image: UIImage) {
-        self.iconImage.image = image
+    func setCompanyIcon(image: String) {
+        NetworkManager.shared.loadImage(from: image) { [self] result in
+            switch result {
+            case .success(let loadedImage):
+                DispatchQueue.main.async {
+                    self.iconImage.image = loadedImage
+                }
+            case .failure(let error):
+                print(error.localizedDescription) }
+        }
     }
 
-    func setCardImage(_ image: UIImage) {
-        self.cardImage.image = image
+    func setCardImage(_ image: String) {
+        NetworkManager.shared.loadImage(from: image) { [self] result in
+            switch result {
+            case .success(let loadedImage):
+                DispatchQueue.main.async {
+                    self.cardImage.image = loadedImage
+                }
+            case .failure(let error):
+                print(error.localizedDescription) }
+        }
     }
 
     func setCardTitle(_ text: String) {

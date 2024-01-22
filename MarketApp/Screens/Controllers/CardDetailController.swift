@@ -18,11 +18,10 @@ final class CardDetailController: UIViewController, CardDetailControllerProtocol
         return view
     }()
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        presenter?.loadItem()
     }
 
     fileprivate func configure() {
@@ -36,11 +35,5 @@ final class CardDetailController: UIViewController, CardDetailControllerProtocol
             cardDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             cardDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-
-        cardDetailView.setCardTitle("Title")
-                cardDetailView.setCardDescription("Description")
-                cardDetailView.setCardImage(UIImage(named: "empty_card") ?? UIImage())
-                cardDetailView.setCompanyIcon(image: UIImage(named: "empty_conpany") ?? UIImage())
     }
-
 }
