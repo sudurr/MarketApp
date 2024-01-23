@@ -5,7 +5,6 @@
 //  Created by Судур Сугунушев on 19.01.2024.
 //
 
-
 import UIKit
 
 final class AllCardsController: UIViewController, AllCardsControllerProtocol {
@@ -27,6 +26,8 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     private let expandableView = ExpandableView()
     private var leftConstraint: NSLayoutConstraint!
     private let network = NetworkManager.shared
+    private var searchTask: DispatchWorkItem?
+
     private var cards = Cards()
 
     override func viewDidLoad() {
@@ -42,9 +43,11 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
             case .success(let drugs):
                 guard !drugs.isEmpty else { return }
                 cards.append(contentsOf: drugs)
+
                 let startIndex = cards.count - drugs.count
                 let endIndex = cards.count - 1
-                var indexPaths = (startIndex...endIndex).map { IndexPath(row: $0, section: 0) }
+                let indexPaths = (startIndex...endIndex).map { IndexPath(row: $0, section: 0) }
+
                 DispatchQueue.main.async { [self] in
                     allCardsView.updateView(at: indexPaths)
                 }
@@ -82,6 +85,7 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
         view.backgroundColor = .systemGreen
         title = presenter?.getNavigationTitle()
         allCardsView.delegate = self
+        searchBar.delegate = self
         view.addSubview(allCardsView)
         configureExpandableView()
 
@@ -109,6 +113,7 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     }
 }
 
+// MARK: - AllCardsViewDelegate
 extension AllCardsController: AllCardsViewDelegate {
     func selectCard(at index: Int) {
         guard let id = cards[index].id else { return }
@@ -137,5 +142,39 @@ extension AllCardsController: AllCardsViewDelegate {
 
     func showNavBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+}
+
+// MARK: - SearchBarDelegate
+
+extension AllCardsController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchTask?.cancel()
+
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self, let searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+            self.searchCards(searchQuery)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: task)
+        searchTask = task
+    }
+
+    func searchCards(_ searchQuery: String) {
+        network.fetchCards(offset: 0, limit: 1, search: searchQuery) { [self] result in
+
+            switch result {
+            case .success(let drugs):
+                guard !drugs.isEmpty else { return }
+                cards = drugs
+
+                DispatchQueue.main.async { [self] in
+                    allCardsView.updateView()
+                }
+            case .failure(let error):
+                print(error)
+            }
+
+        }
     }
 }

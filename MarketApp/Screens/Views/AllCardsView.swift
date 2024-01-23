@@ -20,6 +20,10 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
         return view
     }()
 
+    func updateView() {
+            collectionView.reloadData()
+        }
+
     func updateView(at indexPaths: [IndexPath]) {
         collectionView.performBatchUpdates({
             collectionView.insertItems(at: indexPaths)
