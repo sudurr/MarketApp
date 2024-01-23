@@ -10,11 +10,9 @@ import UIKit
 
 final class AllCardsView: UIView, AllCardsViewProtocol {
 
-    func updateView() {
-            collectionView.reloadData()
-        }
-
     var delegate: AllCardsViewDelegate?
+    var offset = 0
+    let limit = 6
 
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -22,18 +20,22 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
         return view
     }()
 
+    func updateView(at indexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates({
+            collectionView.insertItems(at: indexPaths)
+        }, completion: nil)
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutViews()
         configureViews()
-
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         layoutViews()
         configureViews()
-
     }
 
     fileprivate func layoutViews() {
@@ -56,12 +58,11 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
 
 }
 
+
 extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate?.getItemsCount() ?? 0
     }
-
-
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cellData = delegate?.getCardData(at: indexPath.row),
@@ -85,8 +86,16 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-}
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let count = delegate?.getItemsCount() ?? -1
+        if indexPath.row == count - 1 {
+            // Загрузить дополнительные данные, если прокрутили до последней ячейки
+            offset += limit
+            delegate?.loadCards(from: offset)
+        }
+    }
+}
 
 
 extension AllCardsView: UICollectionViewDelegateFlowLayout {
@@ -121,8 +130,8 @@ extension AllCardsView: UICollectionViewDelegateFlowLayout {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
-             delegate?.hideNavBar() } else { delegate?.showNavBar() }
-     }
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+            delegate?.hideNavBar() } else { delegate?.showNavBar() }
+    }
 
 }

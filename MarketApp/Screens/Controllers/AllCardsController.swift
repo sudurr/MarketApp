@@ -32,22 +32,27 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        loadCards(from: 1)
+        loadCards(from: 0)
     }
 
     func loadCards(from offset: Int) {
-            network.fetchCards(offset: offset, limit: 6) { [self] result in
-                switch result {
-                case .success(let drugs):
-                    cards = drugs
-                    DispatchQueue.main.async { [self] in
-                        allCardsView.updateView()
-                    }
-                case .failure(let error):
-                    print(error)
+        let cardsLimit = 6
+        network.fetchCards(offset: offset, limit: cardsLimit) { [self] result in
+            switch result {
+            case .success(let drugs):
+                guard !drugs.isEmpty else { return }
+                cards.append(contentsOf: drugs)
+                let startIndex = cards.count - drugs.count
+                let endIndex = cards.count - 1
+                var indexPaths = (startIndex...endIndex).map { IndexPath(row: $0, section: 0) }
+                DispatchQueue.main.async { [self] in
+                    allCardsView.updateView(at: indexPaths)
                 }
+            case .failure(let error):
+                print(error)
             }
         }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -122,7 +127,7 @@ extension AllCardsController: AllCardsViewDelegate {
         let imageUrl = cards[index].categories?.image
         let data = (title ?? "",
                     description ?? "",
-                            imageUrl ?? "")
+                    imageUrl ?? "")
         return data
     }
 
