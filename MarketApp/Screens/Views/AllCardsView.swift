@@ -11,8 +11,9 @@ import UIKit
 final class AllCardsView: UIView, AllCardsViewProtocol {
 
     var delegate: AllCardsViewDelegate?
-    var offset = 0
-    let limit = 6
+    private var offset = 0
+    private let limit = Resources.cardsLimit
+    let activityIndicator = UIActivityIndicatorView(style: .large)
 
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -21,8 +22,8 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
     }()
 
     func updateView() {
-            collectionView.reloadData()
-        }
+        collectionView.reloadData()
+    }
 
     func updateView(at indexPaths: [IndexPath]) {
         collectionView.performBatchUpdates({
@@ -44,17 +45,24 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
 
     fileprivate func layoutViews() {
         addSubview(collectionView)
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
     }
 
     fileprivate func configureViews() {
+        activityIndicator.hidesWhenStopped = true
+
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)

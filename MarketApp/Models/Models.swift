@@ -9,6 +9,8 @@ import Foundation
 
 struct Resources {
 
+    static var cardsLimit: Int = 6
+
     enum MainScreen {
         static var mainTitle: String = "Welcome"
         static var iconImageName: String = "welcome_icon"
