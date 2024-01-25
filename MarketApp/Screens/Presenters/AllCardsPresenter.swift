@@ -52,6 +52,7 @@ final class AllCardsPresenter: AllCardsPresenterProtocol {
     }
 
     func searchCards(query: String) {
+        view?.activityIndicator.startAnimating()
         network.fetchCards(offset: 0, limit: 4, search: query) { [self] result in
             switch result {
             case .success(let drugs):
@@ -59,6 +60,7 @@ final class AllCardsPresenter: AllCardsPresenterProtocol {
                 cards = drugs
 
                 DispatchQueue.main.async { [self] in
+                    view?.activityIndicator.stopAnimating()
                     view?.updateView()
                 }
             case .failure(let error):
@@ -69,7 +71,7 @@ final class AllCardsPresenter: AllCardsPresenterProtocol {
     }
 
     func getCardsBy(offset: Int) {
-        view?.activityIndicator.startAnimating()
+        if offset == 0 { view?.activityIndicator.startAnimating() }
         network.fetchCards(offset: offset, limit: cardsLimit) { [self] result in
             switch result {
             case .success(let drugs):
