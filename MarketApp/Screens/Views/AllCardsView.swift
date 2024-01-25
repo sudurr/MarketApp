@@ -82,7 +82,7 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
                 case .success(let image):
                     cell.cardImage.image = image
                 case .failure(let error):
-                    print("Failed to load icon: \(error)")
+                    print(error.localizedDescription)
                 }
             }
         } else {

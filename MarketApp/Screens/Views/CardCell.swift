@@ -32,10 +32,10 @@ final class CardCell: UICollectionViewCell {
 
     private let cardDescription: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 5
         label.textColor = .gray
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.contentMode = .topLeft
+                label.font = .systemFont(ofSize: 18, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,7 +63,6 @@ final class CardCell: UICollectionViewCell {
     }
 
     public func configure(title: String, description: String, image: String) {
-        self.backgroundColor = .clear
         self.cardTitle.text = title
         self.cardDescription.text = description
 
