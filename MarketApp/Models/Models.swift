@@ -12,9 +12,9 @@ struct Resources {
     static var cardsLimit: Int = 6
 
     enum MainScreen {
-        static var mainTitle: String = "Welcome"
+        static var mainTitle: String = "Добро пожаловать"
         static var iconImageName: String = "welcome_icon"
-        static var showAllCardsButtonTitle: String = "Continue"
+        static var showAllCardsButtonTitle: String = "Препараты"
     }
 
     enum AllCardsScreen {
