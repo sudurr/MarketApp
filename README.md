@@ -1,4 +1,4 @@
-#  MarketApp app
+#  MarketApp
 
 ## Описание проекта
 
