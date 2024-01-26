@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol AllCardsViewProtocol: UIView {
-    var delegate: AllCardsViewDelegate? { get set }
+protocol CardListViewProtocol: UIView {
+    var delegate: CardListViewDelegate? { get set }
     var activityIndicator: UIActivityIndicatorView { get }
     func updateView(at indexPaths: [IndexPath])
     func updateView()

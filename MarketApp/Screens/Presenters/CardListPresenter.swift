@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class AllCardsPresenter: AllCardsPresenterProtocol {
+final class CardListPresenter: CardListPresenterProtocol {
     private var cards = Cards()
     private var router: RouterProtocol?
-    private weak var view: AllCardsViewProtocol?
+    private weak var view: CardListViewProtocol?
     private let network = NetworkManager.shared
     private let cardsLimit = Resources.cardsLimit
 
-    init(router: RouterProtocol, view: AllCardsViewProtocol) {
+    init(router: RouterProtocol, view: CardListViewProtocol) {
         self.view = view
         self.router = router
     }

@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class AllCardsController: UIViewController, AllCardsControllerProtocol {
-    var presenter: AllCardsPresenterProtocol?
-    var allCardsView: AllCardsViewProtocol = {
-        let view = AllCardsView()
+final class CardListController: UIViewController, CardListControllerProtocol {
+    var presenter: CardListPresenterProtocol?
+    var cardListView: CardListViewProtocol = {
+        let view = CardListView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -67,16 +67,16 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     fileprivate func configure() {
         view.backgroundColor = .systemGreen
         title = presenter?.getNavigationTitle()
-        allCardsView.delegate = self
+        cardListView.delegate = self
         searchBar.delegate = self
-        view.addSubview(allCardsView)
+        view.addSubview(cardListView)
         configureExpandableView()
 
         NSLayoutConstraint.activate([
-            allCardsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            allCardsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50),
-            allCardsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            allCardsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            cardListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cardListView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50),
+            cardListView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            cardListView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 
@@ -96,8 +96,8 @@ final class AllCardsController: UIViewController, AllCardsControllerProtocol {
     }
 }
 
-// MARK: - AllCardsViewDelegate
-extension AllCardsController: AllCardsViewDelegate {
+// MARK: - CardListViewDelegate
+extension CardListController: CardListViewDelegate {
     func selectCard(at index: Int) {
         presenter?.selectCard(at: index)
         showNavBar()
@@ -126,7 +126,7 @@ extension AllCardsController: AllCardsViewDelegate {
 
 // MARK: - SearchBarDelegate
 
-extension AllCardsController: UISearchBarDelegate {
+extension CardListController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchTask?.cancel()
         searchBar.resignFirstResponder()

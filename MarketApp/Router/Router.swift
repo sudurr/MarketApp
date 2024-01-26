@@ -24,10 +24,10 @@ final class Router: RouterProtocol {
     }
 
     func openAllCardsScreen() {
-        let allCardsController = AllCardsController()
-        let allCardsPresenter = AllCardsPresenter(router: self, view: allCardsController.allCardsView)
-        allCardsController.presenter = allCardsPresenter
-        navigation.pushViewController(allCardsController, animated: true)
+        let cardListController = CardListController()
+        let cardListPresenter = CardListPresenter(router: self, view: cardListController.cardListView)
+        cardListController.presenter = cardListPresenter
+        navigation.pushViewController(cardListController, animated: true)
     }
 
     func openCardDetailScreen(for id: Int) {

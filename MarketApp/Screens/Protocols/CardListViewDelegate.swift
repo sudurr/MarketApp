@@ -9,7 +9,7 @@ import UIKit
 
 typealias CardData = (title: String, description: String, image: String?)
 
-protocol AllCardsViewDelegate {
+protocol CardListViewDelegate {
     func getItemsCount() -> Int
     func getCardData(at index: Int) -> CardData
     func selectCard(at index: Int)

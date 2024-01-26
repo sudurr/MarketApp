@@ -20,14 +20,14 @@
 		47A9111B2B5A792C00540B67 /* MainControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9111A2B5A792C00540B67 /* MainControllerProtocol.swift */; };
 		47A9111D2B5A794300540B67 /* MainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9111C2B5A794300540B67 /* MainViewDelegate.swift */; };
 		47A911202B5A79AA00540B67 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9111F2B5A79AA00540B67 /* MainView.swift */; };
-		47A911242B5A8E2F00540B67 /* AllCardsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911232B5A8E2F00540B67 /* AllCardsPresenter.swift */; };
-		47A911262B5A8E4700540B67 /* AllCardsControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911252B5A8E4700540B67 /* AllCardsControllerProtocol.swift */; };
-		47A911282B5A8E6300540B67 /* AllCardsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911272B5A8E6300540B67 /* AllCardsPresenterProtocol.swift */; };
-		47A9112A2B5A8E8300540B67 /* AllCardsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911292B5A8E8300540B67 /* AllCardsViewDelegate.swift */; };
-		47A9112C2B5A8EAA00540B67 /* AllCardsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112B2B5A8EAA00540B67 /* AllCardsViewProtocol.swift */; };
+		47A911242B5A8E2F00540B67 /* CardListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911232B5A8E2F00540B67 /* CardListPresenter.swift */; };
+		47A911262B5A8E4700540B67 /* CardListControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911252B5A8E4700540B67 /* CardListControllerProtocol.swift */; };
+		47A911282B5A8E6300540B67 /* CardListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911272B5A8E6300540B67 /* CardListPresenterProtocol.swift */; };
+		47A9112A2B5A8E8300540B67 /* CardListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911292B5A8E8300540B67 /* CardListViewDelegate.swift */; };
+		47A9112C2B5A8EAA00540B67 /* CardListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112B2B5A8EAA00540B67 /* CardListViewProtocol.swift */; };
 		47A9112E2B5A8EC000540B67 /* AllCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112D2B5A8EC000540B67 /* AllCardsView.swift */; };
 		47A911302B5A958200540B67 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9112F2B5A958200540B67 /* CardCell.swift */; };
-		47A911322B5A9E0C00540B67 /* AllCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911312B5A9E0C00540B67 /* AllCardsController.swift */; };
+		47A911322B5A9E0C00540B67 /* CardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911312B5A9E0C00540B67 /* CardListController.swift */; };
 		47A911342B5AC1B400540B67 /* CardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911332B5AC1B400540B67 /* CardDetailController.swift */; };
 		47A911362B5AC22A00540B67 /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */; };
 		47A911382B5AC24500540B67 /* CardDetailControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */; };
@@ -55,14 +55,14 @@
 		47A9111A2B5A792C00540B67 /* MainControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerProtocol.swift; sourceTree = "<group>"; };
 		47A9111C2B5A794300540B67 /* MainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDelegate.swift; sourceTree = "<group>"; };
 		47A9111F2B5A79AA00540B67 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		47A911232B5A8E2F00540B67 /* AllCardsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsPresenter.swift; sourceTree = "<group>"; };
-		47A911252B5A8E4700540B67 /* AllCardsControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsControllerProtocol.swift; sourceTree = "<group>"; };
-		47A911272B5A8E6300540B67 /* AllCardsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsPresenterProtocol.swift; sourceTree = "<group>"; };
-		47A911292B5A8E8300540B67 /* AllCardsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsViewDelegate.swift; sourceTree = "<group>"; };
-		47A9112B2B5A8EAA00540B67 /* AllCardsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsViewProtocol.swift; sourceTree = "<group>"; };
+		47A911232B5A8E2F00540B67 /* CardListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenter.swift; sourceTree = "<group>"; };
+		47A911252B5A8E4700540B67 /* CardListControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListControllerProtocol.swift; sourceTree = "<group>"; };
+		47A911272B5A8E6300540B67 /* CardListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenterProtocol.swift; sourceTree = "<group>"; };
+		47A911292B5A8E8300540B67 /* CardListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewDelegate.swift; sourceTree = "<group>"; };
+		47A9112B2B5A8EAA00540B67 /* CardListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewProtocol.swift; sourceTree = "<group>"; };
 		47A9112D2B5A8EC000540B67 /* AllCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsView.swift; sourceTree = "<group>"; };
 		47A9112F2B5A958200540B67 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
-		47A911312B5A9E0C00540B67 /* AllCardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCardsController.swift; sourceTree = "<group>"; };
+		47A911312B5A9E0C00540B67 /* CardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListController.swift; sourceTree = "<group>"; };
 		47A911332B5AC1B400540B67 /* CardDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailController.swift; sourceTree = "<group>"; };
 		47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailControllerProtocol.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				47A911182B5A789500540B67 /* MainController.swift */,
-				47A911312B5A9E0C00540B67 /* AllCardsController.swift */,
+				47A911312B5A9E0C00540B67 /* CardListController.swift */,
 				47A911332B5AC1B400540B67 /* CardDetailController.swift */,
 			);
 			path = Controllers;
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				47A911112B59B0D900540B67 /* MainPresenter.swift */,
-				47A911232B5A8E2F00540B67 /* AllCardsPresenter.swift */,
+				47A911232B5A8E2F00540B67 /* CardListPresenter.swift */,
 				47A911352B5AC22A00540B67 /* CardDetailPresenter.swift */,
 			);
 			path = Presenters;
@@ -163,10 +163,10 @@
 				47A911132B59B10700540B67 /* MainPresenterProtocol.swift */,
 				47A9111A2B5A792C00540B67 /* MainControllerProtocol.swift */,
 				47A9111C2B5A794300540B67 /* MainViewDelegate.swift */,
-				47A911252B5A8E4700540B67 /* AllCardsControllerProtocol.swift */,
-				47A911272B5A8E6300540B67 /* AllCardsPresenterProtocol.swift */,
-				47A911292B5A8E8300540B67 /* AllCardsViewDelegate.swift */,
-				47A9112B2B5A8EAA00540B67 /* AllCardsViewProtocol.swift */,
+				47A911252B5A8E4700540B67 /* CardListControllerProtocol.swift */,
+				47A911272B5A8E6300540B67 /* CardListPresenterProtocol.swift */,
+				47A911292B5A8E8300540B67 /* CardListViewDelegate.swift */,
+				47A9112B2B5A8EAA00540B67 /* CardListViewProtocol.swift */,
 				47A911372B5AC24500540B67 /* CardDetailControllerProtocol.swift */,
 				47A911392B5AC26700540B67 /* CardDetailPresenterProtocol.swift */,
 				47A9113B2B5AC28B00540B67 /* CardDetailViewProtocol.swift */,
@@ -273,25 +273,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47A9112C2B5A8EAA00540B67 /* AllCardsViewProtocol.swift in Sources */,
+				47A9112C2B5A8EAA00540B67 /* CardListViewProtocol.swift in Sources */,
 				47A9113A2B5AC26700540B67 /* CardDetailPresenterProtocol.swift in Sources */,
 				47A911422B5D84AF00540B67 /* Cards.swift in Sources */,
 				47A9113E2B5AC2A000540B67 /* CardDetailView.swift in Sources */,
 				47A911202B5A79AA00540B67 /* MainView.swift in Sources */,
 				47A910F12B59963D00540B67 /* AppDelegate.swift in Sources */,
-				47A911242B5A8E2F00540B67 /* AllCardsPresenter.swift in Sources */,
-				47A9112A2B5A8E8300540B67 /* AllCardsViewDelegate.swift in Sources */,
+				47A911242B5A8E2F00540B67 /* CardListPresenter.swift in Sources */,
+				47A9112A2B5A8E8300540B67 /* CardListViewDelegate.swift in Sources */,
 				47A911072B59AE9800540B67 /* Router.swift in Sources */,
 				47A911342B5AC1B400540B67 /* CardDetailController.swift in Sources */,
 				47A9111B2B5A792C00540B67 /* MainControllerProtocol.swift in Sources */,
 				47A9113C2B5AC28B00540B67 /* CardDetailViewProtocol.swift in Sources */,
 				47A911142B59B10700540B67 /* MainPresenterProtocol.swift in Sources */,
 				47A911462B5D84FB00540B67 /* NetworkManager.swift in Sources */,
-				47A911322B5A9E0C00540B67 /* AllCardsController.swift in Sources */,
+				47A911322B5A9E0C00540B67 /* CardListController.swift in Sources */,
 				47A911382B5AC24500540B67 /* CardDetailControllerProtocol.swift in Sources */,
 				47A911192B5A789500540B67 /* MainController.swift in Sources */,
 				47A911122B59B0D900540B67 /* MainPresenter.swift in Sources */,
-				47A911282B5A8E6300540B67 /* AllCardsPresenterProtocol.swift in Sources */,
+				47A911282B5A8E6300540B67 /* CardListPresenterProtocol.swift in Sources */,
 				47A9111D2B5A794300540B67 /* MainViewDelegate.swift in Sources */,
 				47A9110D2B59B03800540B67 /* MainViewControllerProtocol.swift in Sources */,
 				47A911302B5A958200540B67 /* CardCell.swift in Sources */,
@@ -300,7 +300,7 @@
 				47A910F32B59963D00540B67 /* SceneDelegate.swift in Sources */,
 				47A911362B5AC22A00540B67 /* CardDetailPresenter.swift in Sources */,
 				47A911052B59A92800540B67 /* Models.swift in Sources */,
-				47A911262B5A8E4700540B67 /* AllCardsControllerProtocol.swift in Sources */,
+				47A911262B5A8E4700540B67 /* CardListControllerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class AllCardsView: UIView, AllCardsViewProtocol {
+final class CardListView: UIView, CardListViewProtocol {
 
-    var delegate: AllCardsViewDelegate?
+    var delegate: CardListViewDelegate?
     private var offset = 0
     private let limit = Resources.cardsLimit
     let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -69,7 +69,7 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
 
 }
 
-extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CardListView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate?.getItemsCount() ?? 0
     }
@@ -107,8 +107,7 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-extension AllCardsView: UICollectionViewDelegateFlowLayout {
-
+extension CardListView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.selectCard(at: indexPath.row)
     }
