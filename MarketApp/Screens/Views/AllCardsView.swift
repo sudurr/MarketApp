@@ -5,7 +5,6 @@
 //  Created by Судур Сугунушев on 19.01.2024.
 //
 
-
 import UIKit
 
 final class AllCardsView: UIView, AllCardsViewProtocol {
@@ -70,7 +69,6 @@ final class AllCardsView: UIView, AllCardsViewProtocol {
 
 }
 
-
 extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate?.getItemsCount() ?? 0
@@ -109,7 +107,6 @@ extension AllCardsView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-
 extension AllCardsView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -122,7 +119,7 @@ extension AllCardsView: UICollectionViewDelegateFlowLayout {
 
         return CGSize(width: frame.width * 0.437, height: frame.width * 0.789)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -145,5 +142,4 @@ extension AllCardsView: UICollectionViewDelegateFlowLayout {
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
             delegate?.hideNavBar() } else { delegate?.showNavBar() }
     }
-
 }

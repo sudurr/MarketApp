@@ -5,7 +5,6 @@
 //  Created by Судур Сугунушев on 19.01.2024.
 //
 
-
 import Foundation
 
 protocol AllCardsPresenterProtocol: AnyObject {
@@ -21,5 +20,4 @@ protocol AllCardsPresenterProtocol: AnyObject {
     func getCardImageName(at index: Int) -> String?
 
     func searchCards(query: String)
-
 }

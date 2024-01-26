@@ -31,18 +31,15 @@ final class Router: RouterProtocol {
     }
 
     func openCardDetailScreen(for id: Int) {
-           let cardDetailController = CardDetailController()
+        let cardDetailController = CardDetailController()
         let cardDetailPresenter = CardDetailPresenter(view: cardDetailController.cardDetailView, item: id)
-           cardDetailController.presenter = cardDetailPresenter
-           navigation.pushViewController(cardDetailController, animated: true)
-       }
+        cardDetailController.presenter = cardDetailPresenter
+        navigation.pushViewController(cardDetailController, animated: true)
+    }
 }
-
-
 
 protocol RouterProtocol: AnyObject {
     func prepareInitialScreen() -> UIViewController
     func openAllCardsScreen()
     func openCardDetailScreen(for id: Int)
-
 }

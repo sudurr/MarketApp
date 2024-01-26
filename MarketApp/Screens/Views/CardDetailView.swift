@@ -8,13 +8,13 @@
 import UIKit
 
 final class CardDetailView: UIView, CardDetailViewProtocol {
-
+    
     var dataSource: CardDetailViewDataSource?
-
+    
     private let topStackView = UIStackView()
     private let mainStackView = UIStackView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
-
+    
     private let iconImage: UIImageView = {
         let image = UIImageView()
         image.layer.masksToBounds = true
@@ -23,14 +23,14 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         image.contentMode = .scaleAspectFit
         return image
     }()
-
+    
     private let cardImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
     }()
-
+    
     private let favoritesButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         button.setImage(UIImage(named: Resources.CardView.favoritesButtonImageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
         return button
     }()
-
+    
     private let cardTitle: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -46,7 +46,7 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let cardDescription: UILabel = {
         let label = UILabel()
         label.textColor = .gray
@@ -54,7 +54,7 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let buyButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.masksToBounds = true
@@ -70,41 +70,41 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutViews()
         configureViews()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         layoutViews()
         configureViews()
     }
-
+    
     fileprivate func layoutViews() {
         addSubview(mainStackView)
         topStackView.addSubview(activityIndicator)
         activityIndicator.hidesWhenStopped = true
-
+        
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
-
+            
             iconImage.widthAnchor.constraint(equalToConstant: 32),
             iconImage.heightAnchor.constraint(equalToConstant: 32),
-
+            
             favoritesButton.widthAnchor.constraint(equalToConstant: 32),
             favoritesButton.heightAnchor.constraint(equalToConstant: 32),
-
+            
             cardImage.widthAnchor.constraint(equalToConstant: 150),
             cardImage.heightAnchor.constraint(equalToConstant: 200),
-
+            
             buyButton.heightAnchor.constraint(equalToConstant: 40),
-
+            
             mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -113,46 +113,45 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
             activityIndicator.centerYAnchor.constraint(equalTo: topStackView.centerYAnchor)
         ])
     }
-
+    
     fileprivate func configureViews() {
         backgroundColor = .white
-
+        
         activityIndicator.startAnimating()
         topStackView.addArrangedSubview(iconImage)
         topStackView.spacing = 20
         topStackView.addArrangedSubview(cardImage)
         topStackView.spacing = 20
         topStackView.addArrangedSubview(favoritesButton)
-
+        
         let spacerView = UIView()
         mainStackView.addArrangedSubview(topStackView)
         mainStackView.addArrangedSubview(cardTitle)
         mainStackView.addArrangedSubview(cardDescription)
         mainStackView.addArrangedSubview(buyButton)
         mainStackView.addArrangedSubview(spacerView)
-
+        
         iconImage.setContentCompressionResistancePriority(.required, for: .horizontal)
         iconImage.setContentCompressionResistancePriority(.required, for: .vertical)
-
+        
         favoritesButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         favoritesButton.setContentCompressionResistancePriority(.required, for: .vertical)
         cardImage.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         cardImage.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-
-
+        
         mainStackView.axis = .vertical
         mainStackView.alignment = .fill
         mainStackView.distribution = .fill
         mainStackView.spacing = 10
-
+        
         topStackView.axis = .horizontal
         topStackView.alignment = .top
-
+        
         topStackView.spacing = 20
         topStackView.setContentCompressionResistancePriority(.required, for: .horizontal)
         topStackView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
-
+    
     func setCompanyIcon(image: String) {
         NetworkManager.shared.loadImage(from: image) { [self] result in
             switch result {
@@ -164,7 +163,7 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
                 print(error.localizedDescription) }
         }
     }
-
+    
     func setCardImage(_ image: String) {
         NetworkManager.shared.loadImage(from: image) { [self] result in
             switch result {
@@ -175,11 +174,11 @@ final class CardDetailView: UIView, CardDetailViewProtocol {
                 print(error.localizedDescription) }
         }
     }
-
+    
     func setCardTitle(_ text: String) {
         self.cardTitle.text = text
     }
-
+    
     func setCardDescription(_ text: String) {
         self.cardDescription.text = text
     }

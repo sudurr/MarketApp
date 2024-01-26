@@ -5,11 +5,9 @@
 //  Created by Судур Сугунушев on 19.01.2024.
 //
 
-
 import Foundation
 
 final class AllCardsPresenter: AllCardsPresenterProtocol {
-
     private var cards = Cards()
     private var router: RouterProtocol?
     private weak var view: AllCardsViewProtocol?
@@ -20,7 +18,6 @@ final class AllCardsPresenter: AllCardsPresenterProtocol {
         self.view = view
         self.router = router
     }
-
 
     func getItemsCount() -> Int {
         return self.cards.count
@@ -90,6 +87,5 @@ final class AllCardsPresenter: AllCardsPresenterProtocol {
                 print(error)
             }
         }
-
     }
 }

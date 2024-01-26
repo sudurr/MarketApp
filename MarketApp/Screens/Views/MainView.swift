@@ -10,7 +10,7 @@ import UIKit
 final class MainView: UIView, MainViewProtocol {
 
     var delegate: MainViewDelegate?
-
+    
     var titlelabel: UILabel  = {
         let label = UILabel()
         label.textAlignment = .center
@@ -29,7 +29,7 @@ final class MainView: UIView, MainViewProtocol {
 
     var showAllCardsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Продолжить", for: .normal)
+        button.setTitle("Препараты", for: .normal)
         button.setTitleColor(.systemGreen, for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 30
@@ -75,7 +75,6 @@ final class MainView: UIView, MainViewProtocol {
 
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-
     }
 
     private func configureViews() {
@@ -86,7 +85,6 @@ final class MainView: UIView, MainViewProtocol {
         stackView.spacing = 20
         iconImage.contentMode = .scaleAspectFit
         showAllCardsButton.addTarget(self, action: #selector(showButtonAction), for: .touchUpInside)
-
     }
 
     func setIconImage(_ image: UIImage?) {
@@ -104,5 +102,4 @@ final class MainView: UIView, MainViewProtocol {
     @objc func showButtonAction() {
         delegate?.showAllCardsButtonPressed()
     }
-
 }

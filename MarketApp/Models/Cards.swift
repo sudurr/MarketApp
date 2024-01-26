@@ -13,10 +13,13 @@ struct Card: Codable {
     let id: Int?
     let image: String?
     let categories: Categories?
-    let name, description: String?
+    let name: String?
+    let description: String?
 }
 
 struct Categories: Codable {
     let id: Int
-    let icon, image, name: String
+    let icon: String
+    let image: String
+    let name: String
 }

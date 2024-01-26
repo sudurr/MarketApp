@@ -42,7 +42,6 @@ final class MainController: UIViewController, MainControllerProtocol {
         mainView.setTitleForButton(presenter?.getShowAllCardsButtonTitle() ?? "")
         mainView.setIconImage(UIImage(named: presenter?.getIconImageName() ?? ""))
     }
-
 }
 
 extension MainController: MainViewDelegate {
@@ -50,5 +49,4 @@ extension MainController: MainViewDelegate {
     func showAllCardsButtonPressed() {
         presenter?.showAllCardsButtonPressed()
     }
-
 }
